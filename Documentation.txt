@@ -1,0 +1,136 @@
+This is a manual for the file AOSA.c
+
+It is a modular program that accepts command line arguments to carry out tasks:
+
+
+1. Manual:-
+
+Name
+        manual command_name
+
+Description
+        open the manual for the given command 
+
+	  Example
+		manual read; will show the manual for read.
+
+2.Creation of a file
+Name
+        create FileName Mod(optional)
+
+Type
+        char*   FileName
+        int     Mod
+
+Default Value
+        Mod     0660
+
+Description
+        create the file with name 'FileName' and mode 'Mod'
+
+        'Mod' will specify the permissions of other, group and user; mod will be needed in octal value
+
+        4: read permission
+        2: write permission
+        1: execute permission
+
+        to give the permission of combo of any two or more permissions add the value corresponds to given permission
+
+        Example
+            0777 will give the all three permissions to all (user, groups and others)
+            0421 will give read permission to user, write permission to group and execute permission to other
+
+Note
+        if file having name 'FileName' already exists it will give you the error message and further prompt you if you would want to replace the file with a new file.
+
+
+3. Read:-
+
+Name
+        read FileName Bytes(optional) Offset(optional)
+
+Type
+        char*   FileName
+        int     Bytes
+        int     Offset
+
+Default Value
+        Bytes   -1
+        Offset  0
+
+Description
+        will open the file 'Filename' and start reading it from offset 'Offset' upto 'Bytes' no of bytes.
+
+        File which you want to read must already exist.
+
+        If you don't know the number of bytes to be read and want to read the whole content upto end of file then skip the bytes part.
+
+
+Name
+        
+        write FileName1 Offset1
+
+Type
+        char*   FileName1
+        int     Offset1
+
+Description
+        will take the input from user and write it to file 'FileName1' at offset 'Offset1'
+
+Note
+        It will overwrite the content of FileName2.
+
+        File in which you want to write must already exist.
+
+
+5. Stats:-
+
+Name
+        stats FileName
+
+Type
+        char*   Filename
+
+Description
+        will show the stastical properties of file having name 'FileName'
+
+Statstical Properties
+        User ID
+        File Size
+        Number of Hard Links
+        Inode Number
+        Permissions of User, Group and Others
+
+
+6. Copy:-
+
+Name
+        copy FileName1 Offset1 Bytes FileName2 Offset2
+
+Type
+        char*   FileName1
+        char*   FileName2
+	  int     bytes
+	  int     offset1
+	  int     offset1
+
+Description
+        will copy all the content present in file 'FileName1' to file having name 'FileName2'
+
+Note
+        file "FileName2' will be created if not already exists but gives error if 'FileName1' will not exist
+
+        all the content( if any) present in file 'FileName2' will be deleted
+
+
+
+Note:-
+
+Description
+        Wrong number and type of argument will lead to undesirable result
+
+Any other command other than those mentioned above will lead to a message and return:
+	  Enter a valid operation from create, open, read, write, copy and info please :)
+
+
+Hope this helps you to get a better understanding of this program ,enjoyed making my first modular program accepting command line arguments!! 
